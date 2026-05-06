@@ -269,7 +269,7 @@
         }
 
         .header__image img {
-            width: 100%;
+            width: 80%;
             height: auto;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-heavy);
@@ -868,6 +868,273 @@
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
+  .certifications {
+        padding: 4rem 0;
+        background: var(--white);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .certifications__container {
+        margin-top: 2rem;
+        position: relative;
+        width: 100%;
+    }
+
+    .certifications__wrapper {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 1rem 0.5rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        cursor: grab;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .certifications__wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .certifications__wrapper:active {
+        cursor: grabbing;
+    }
+
+    .certification__card {
+        background: var(--white);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+        transition: all 0.3s ease;
+        position: relative;
+        flex: 0 0 calc(100% - 3rem);
+        display: flex;
+        flex-direction: column;
+        scroll-snap-align: start;
+        min-height: 380px;
+    }
+
+    .certification__card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-medium);
+    }
+
+    .certification__image {
+        position: relative;
+        overflow: hidden;
+        height: 180px;
+        flex-shrink: 0;
+    }
+
+    .certification__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .certification__card:hover .certification__image img {
+        transform: scale(1.05);
+    }
+
+    .certification__badge {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        background: linear-gradient(135deg, #ffd700, #ffa500);
+        color: var(--white);
+        padding: 0.4rem 0.8rem;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        box-shadow: var(--shadow-light);
+        z-index: 2;
+    }
+
+    .certification__content {
+        padding: 1.25rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .certification__content h3 {
+        margin-bottom: 0.5rem;
+        color: var(--secondary-color);
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+
+    .certification__content p {
+        color: var(--text-light);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .certification__date {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary-color);
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-top: auto;
+    }
+
+    .certifications__nav {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .cert-nav-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        color: var(--white);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-medium);
+        font-size: 1.1rem;
+    }
+
+    .cert-nav-btn:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-heavy);
+    }
+
+    .cert-nav-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    /* Tablet Styles */
+    @media (min-width: 768px) {
+        .certifications {
+            padding: 5rem 0;
+        }
+        
+        .certifications__container {
+            margin-top: 2.5rem;
+        }
+        
+        .certifications__wrapper {
+            gap: 2rem;
+            padding: 1.5rem 1rem;
+        }
+        
+        .certification__card {
+            flex: 0 0 calc(50% - 2rem);
+            min-height: 400px;
+        }
+        
+        .certification__image {
+            height: 200px;
+        }
+        
+        .certification__content {
+            padding: 1.5rem;
+        }
+        
+        .certification__content h3 {
+            font-size: 1.2rem;
+        }
+        
+        .certification__content p {
+            font-size: 0.9rem;
+        }
+        
+        .cert-nav-btn {
+            width: 48px;
+            height: 48px;
+            font-size: 1.2rem;
+        }
+    }
+
+    /* Desktop Styles */
+    @media (min-width: 1024px) {
+        .certifications {
+            padding: 6rem 0;
+        }
+        
+        .certifications__container {
+            margin-top: 3rem;
+        }
+        
+        .certifications__wrapper {
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+        
+        .certification__card {
+            flex: 0 0 calc(33.333% - 2rem);
+            min-height: 420px;
+        }
+        
+        .certification__image {
+            height: 220px;
+        }
+        
+        .certification__content h3 {
+            font-size: 1.25rem;
+        }
+        
+        .certification__content p {
+            font-size: 0.95rem;
+            -webkit-line-clamp: 4;
+        }
+        
+        .cert-nav-btn {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    /* Large Desktop Styles */
+    @media (min-width: 1200px) {
+        .certification__card {
+            flex: 0 0 calc(25% - 2rem);
+        }
+    }
+
+    /* Hide navigation buttons on very small screens */
+    @media (max-width: 480px) {
+        .certifications__nav {
+            display: none;
+        }
+        
+        .certifications__wrapper {
+            padding: 0.5rem 1rem;
+            gap: 1rem;
+        }
+        
+        .certification__card {
+            flex: 0 0 calc(100% - 2rem);
+        }
+    }
+
+    /* Show navigation buttons when enough space */
+    @media (min-width: 481px) {
+        .certifications__nav {
+            display: flex;
+        }
+    }
     </style>
 </head>
 
@@ -914,7 +1181,7 @@
                     </div>
                 </div>
                 <div class="header__image float">
-                    <img src="IMG_1153a.jpg" alt="Sundara Pandi" />
+                    <img src="008A9186a.jpg" alt="Sundara Pandi" />
                 </div>
             </div>
         </div>
@@ -1000,6 +1267,116 @@
             </div>
         </div>
     </section>
+    <!--
+<section id="certifications" class="certifications">
+    <div class="section__container">
+        <p class="section__subheader">My Achievements</p>
+        <h2 class="section__header">Certifications</h2>
+        <div class="certifications__container">
+            <div class="certifications__wrapper" id="certificationsWrapper">
+                <div class="certification__card">
+                    <div class="certification__image">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=250&fit=crop" alt="Java Certification" />
+                        <div class="certification__badge">Verified</div>
+                    </div>
+                    <div class="certification__content">
+                        <h3>Java Programming Masterclass</h3>
+                        <p>Comprehensive Java programming certification covering core concepts, OOP principles, and advanced features.</p>
+                        <div class="certification__date">
+                            <i class="ri-calendar-line"></i>
+                            <span>Issued: May 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification__card">
+                    <div class="certification__image">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop" alt="Web Development Certification" />
+                        <div class="certification__badge">Verified</div>
+                    </div>
+                    <div class="certification__content">
+                        <h3>Full Stack Web Development</h3>
+                        <p>Complete web development certification covering HTML, CSS, JavaScript, and backend technologies.</p>
+                        <div class="certification__date">
+                            <i class="ri-calendar-line"></i>
+                            <span>Issued: August 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification__card">
+                    <div class="certification__image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Database Certification" />
+                        <div class="certification__badge">Verified</div>
+                    </div>
+                    <div class="certification__content">
+                        <h3>Database Management Systems</h3>
+                        <p>Advanced database management certification covering SQL, NoSQL, and database optimization techniques.</p>
+                        <div class="certification__date">
+                            <i class="ri-calendar-line"></i>
+                            <span>Issued: January 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification__card">
+                    <div class="certification__image">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop" alt="React Certification" />
+                        <div class="certification__badge">Verified</div>
+                    </div>
+                    <div class="certification__content">
+                        <h3>React & Redux Certification</h3>
+                        <p>Modern frontend development with React, Redux state management, and component-based architecture.</p>
+                        <div class="certification__date">
+                            <i class="ri-calendar-line"></i>
+                            <span>Issued: March 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification__card">
+                    <div class="certification__image">
+                        <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=250&fit=crop" alt="Spring Boot Certification" />
+                        <div class="certification__badge">Verified</div>
+                    </div>
+                    <div class="certification__content">
+                        <h3>Spring Boot Framework</h3>
+                        <p>Enterprise Java development with Spring Boot, REST APIs, microservices, and security implementation.</p>
+                        <div class="certification__date">
+                            <i class="ri-calendar-line"></i>
+                            <span>Issued: April 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification__card">
+                    <div class="certification__image">
+                        <img src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?w=400&h=250&fit=crop" alt="AWS Certification" />
+                        <div class="certification__badge">Verified</div>
+                    </div>
+                    <div class="certification__content">
+                        <h3>AWS Cloud Practitioner</h3>
+                        <p>Cloud computing fundamentals with AWS services, deployment strategies, and infrastructure management.</p>
+                        <div class="certification__date">
+                            <i class="ri-calendar-line"></i>
+                            <span>Issued: June 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certifications__nav">
+                <button class="cert-nav-btn" id="certPrevBtn">
+                    <i class="ri-arrow-left-line"></i>
+                </button>
+                <button class="cert-nav-btn" id="certNextBtn">
+                    <i class="ri-arrow-right-line"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+-->
 
     <!-- Portfolio -->
     <section id="portfolio" class="portfolio">
@@ -1051,6 +1428,17 @@
                         <h3>Library Management System </h3>
                         <p>A standalone Java-based application built to manage core library functions such as book management, user handling, and issue/return tracking. Developed using core Java, this project operates entirely without database integration, utilizing file handling for data storage and retrieval. The interface is clean and simple, suitable for small-scale libraries or educational demos.</p>
                         <a href="https://github.com/sundarapandik2004/Library-Management-System" target="_blank">
+                            <i class="ri-github-line"></i>
+                            View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="portfolio__card" data-category="java">
+                    <img src="Attendance.png" alt="Inventory Management" />
+                    <div class="portfolio__card-content">
+                        <h3>Student Attendance Management System</h3>
+                        <p>I created a Student Attendance Management System in Java that allows teachers to record attendance, generate reports, and manage student data efficiently. The project showcases my skills in Java, object-oriented programming, and problem-solving while providing a simple and user-friendly solution for academic record management.</p>
+                        <a href="https://github.com/sundarapandik2004/Student-Attendance-Management-System" target="_blank">
                             <i class="ri-github-line"></i>
                             View on GitHub
                         </a>
@@ -1269,6 +1657,157 @@
     publicKey: "eTHIywgf9WhFet3N7",
   });
 })();
+// Add this JavaScript to your existing script section
+// Certifications horizontal scroll
+ document.addEventListener('DOMContentLoaded', function() {
+        const certWrapper = document.getElementById('certificationsWrapper');
+        const certPrevBtn = document.getElementById('certPrevBtn');
+        const certNextBtn = document.getElementById('certNextBtn');
+        
+        if (!certWrapper || !certPrevBtn || !certNextBtn) return;
+        
+        // Calculate scroll amount based on screen size
+        function getScrollAmount() {
+            const card = certWrapper.querySelector('.certification__card');
+            if (!card) return 300;
+            
+            const cardWidth = card.offsetWidth;
+            const gap = parseInt(getComputedStyle(certWrapper).gap) || 20;
+            return cardWidth + gap;
+        }
+        
+        certNextBtn.addEventListener('click', () => {
+            const scrollAmount = getScrollAmount();
+            certWrapper.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        certPrevBtn.addEventListener('click', () => {
+            const scrollAmount = getScrollAmount();
+            certWrapper.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Update button states based on scroll position
+        function updateNavButtons() {
+            const maxScrollLeft = certWrapper.scrollWidth - certWrapper.clientWidth;
+            
+            if (certWrapper.scrollLeft <= 10) {
+                certPrevBtn.disabled = true;
+                certPrevBtn.setAttribute('aria-hidden', 'true');
+            } else {
+                certPrevBtn.disabled = false;
+                certPrevBtn.setAttribute('aria-hidden', 'false');
+            }
+            
+            if (certWrapper.scrollLeft >= maxScrollLeft - 10) {
+                certNextBtn.disabled = true;
+                certNextBtn.setAttribute('aria-hidden', 'true');
+            } else {
+                certNextBtn.disabled = false;
+                certNextBtn.setAttribute('aria-hidden', 'false');
+            }
+        }
+        
+        certWrapper.addEventListener('scroll', updateNavButtons);
+        
+        // Touch/swipe functionality
+        let startX;
+        let scrollLeft;
+        let isDragging = false;
+        
+        certWrapper.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - certWrapper.offsetLeft;
+            scrollLeft = certWrapper.scrollLeft;
+            certWrapper.style.cursor = 'grabbing';
+            certWrapper.style.scrollSnapType = 'none';
+        });
+        
+        certWrapper.addEventListener('mouseleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                certWrapper.style.cursor = 'grab';
+                certWrapper.style.scrollSnapType = 'x mandatory';
+            }
+        });
+        
+        certWrapper.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                certWrapper.style.cursor = 'grab';
+                certWrapper.style.scrollSnapType = 'x mandatory';
+                
+                // Re-enable snap scrolling after drag
+                setTimeout(() => {
+                    certWrapper.style.scrollSnapType = 'x mandatory';
+                }, 100);
+            }
+        });
+        
+        certWrapper.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - certWrapper.offsetLeft;
+            const walk = (x - startX) * 2;
+            certWrapper.scrollLeft = scrollLeft - walk;
+        });
+        
+        // Touch events for mobile
+        certWrapper.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX - certWrapper.offsetLeft;
+            scrollLeft = certWrapper.scrollLeft;
+            certWrapper.style.scrollSnapType = 'none';
+        });
+        
+        certWrapper.addEventListener('touchmove', (e) => {
+            if (!startX) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - certWrapper.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            certWrapper.scrollLeft = scrollLeft - walk;
+        });
+        
+        certWrapper.addEventListener('touchend', () => {
+            startX = null;
+            // Re-enable snap scrolling after touch
+            setTimeout(() => {
+                certWrapper.style.scrollSnapType = 'x mandatory';
+            }, 100);
+        });
+        
+        // Initialize button states
+        updateNavButtons();
+        
+        // Update on window resize
+        window.addEventListener('resize', updateNavButtons);
+        
+        // Add keyboard navigation
+        certWrapper.setAttribute('tabindex', '0');
+        certWrapper.addEventListener('keydown', (e) => {
+            const scrollAmount = getScrollAmount();
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                certWrapper.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                certWrapper.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+
+
 </script>
 </body>
 </html>
