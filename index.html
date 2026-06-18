@@ -1736,7 +1736,6 @@
         
         certWrapper.addEventListener('touchmove', (e) => {
             if (!startX) return;
-            e.preventDefault();
             const x = e.touches[0].pageX - certWrapper.offsetLeft;
             const walk = (x - startX) * 1.5;
             certWrapper.scrollLeft = scrollLeft - walk;
