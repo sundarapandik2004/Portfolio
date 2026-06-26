@@ -1745,46 +1745,34 @@
         });
         
         // Touch events for mobile
-        // Touch events for mobile
-let startX = null;
-let startY = null;
-let scrollLeft = 0;
+  // Touch events for mobile
+let touchStartX = 0;
+let touchStartY = 0;
+let touchScrollLeft = 0;
 
-certWrapper.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].pageX - certWrapper.offsetLeft;
-    startY = e.touches[0].pageY;
-    scrollLeft = certWrapper.scrollLeft;
-    certWrapper.style.scrollSnapType = 'none';
-}, { passive: true });
+certWrapper.addEventListener("touchstart", function (e) {
 
-certWrapper.addEventListener('touchmove', (e) => {
-
-    if (startX === null) return;
-
-    const currentX = e.touches[0].pageX - certWrapper.offsetLeft;
-    const currentY = e.touches[0].pageY;
-
-    const moveX = Math.abs(currentX - startX);
-    const moveY = Math.abs(currentY - startY);
-
-    // Allow normal page scrolling if user is moving vertically
-    if (moveY > moveX) {
-        return;
-    }
-
-    const walk = (currentX - startX) * 1.5;
-    certWrapper.scrollLeft = scrollLeft - walk;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touchScrollLeft = certWrapper.scrollLeft;
 
 }, { passive: true });
 
-certWrapper.addEventListener('touchend', () => {
+certWrapper.addEventListener("touchmove", function (e) {
 
-    startX = null;
-    startY = null;
+    const deltaX = e.touches[0].clientX - touchStartX;
+    const deltaY = e.touches[0].clientY - touchStartY;
 
-    setTimeout(() => {
-        certWrapper.style.scrollSnapType = 'x mandatory';
-    }, 100);
+    // If user is scrolling vertically, don't interfere
+    if (Math.abs(deltaY) > Math.abs(deltaX)) return;
+
+    certWrapper.scrollLeft = touchScrollLeft - deltaX;
+
+}, { passive: true });
+
+certWrapper.addEventListener("touchend", function () {
+
+    updateNavButtons();
 
 });
         
