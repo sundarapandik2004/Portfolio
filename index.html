@@ -898,6 +898,7 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
 }
 
 .certifications__wrapper::-webkit-scrollbar {
@@ -1147,7 +1148,13 @@
                     Passionate Full Stack Developer and Java Developer with a strong foundation in designing and building scalable, user-centric applications. Skilled in Java, HTML, CSS, JavaScript, and database technologies, I enjoy transforming ideas into efficient and reliable solutions. I focus on writing clean, maintainable code and developing intuitive interfaces backed by robust systems that deliver seamless user experiences. With a commitment to continuous learning and problem-solving, I strive to create impactful applications that combine functionality, performance, and modern design.
                 </p>
 
-                <div class="header__btns">
+            </div>
+
+            <!-- Right Side -->
+            <div class="header__image float">
+                <img src="008A9186a.jpg" alt="Sundara Pandi" />
+            </div>
+             <div class="header__btns">
                     <a href="https://drive.google.com/file/d/1PHBUo3H7UftW6mSoRqQl4nG1epEAHl25/view?usp=sharing" class="btn btn-primary">
                         <i class="ri-download-line"></i>
                         Download CV
@@ -1158,13 +1165,6 @@
                         Contact Me
                     </a>
                 </div>
-            </div>
-
-            <!-- Right Side -->
-            <div class="header__image float">
-                <img src="008A9186a.jpg" alt="Sundara Pandi" />
-            </div>
-
         </div>
     </div>
 </section>
@@ -1745,26 +1745,48 @@
         });
         
         // Touch events for mobile
-        certWrapper.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].pageX - certWrapper.offsetLeft;
-            scrollLeft = certWrapper.scrollLeft;
-            certWrapper.style.scrollSnapType = 'none';
-        });
-        
-        certWrapper.addEventListener('touchmove', (e) => {
-            if (!startX) return;
-            const x = e.touches[0].pageX - certWrapper.offsetLeft;
-            const walk = (x - startX) * 1.5;
-            certWrapper.scrollLeft = scrollLeft - walk;
-        });
-        
-        certWrapper.addEventListener('touchend', () => {
-            startX = null;
-            // Re-enable snap scrolling after touch
-            setTimeout(() => {
-                certWrapper.style.scrollSnapType = 'x mandatory';
-            }, 100);
-        });
+        // Touch events for mobile
+let startX = null;
+let startY = null;
+let scrollLeft = 0;
+
+certWrapper.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].pageX - certWrapper.offsetLeft;
+    startY = e.touches[0].pageY;
+    scrollLeft = certWrapper.scrollLeft;
+    certWrapper.style.scrollSnapType = 'none';
+}, { passive: true });
+
+certWrapper.addEventListener('touchmove', (e) => {
+
+    if (startX === null) return;
+
+    const currentX = e.touches[0].pageX - certWrapper.offsetLeft;
+    const currentY = e.touches[0].pageY;
+
+    const moveX = Math.abs(currentX - startX);
+    const moveY = Math.abs(currentY - startY);
+
+    // Allow normal page scrolling if user is moving vertically
+    if (moveY > moveX) {
+        return;
+    }
+
+    const walk = (currentX - startX) * 1.5;
+    certWrapper.scrollLeft = scrollLeft - walk;
+
+}, { passive: true });
+
+certWrapper.addEventListener('touchend', () => {
+
+    startX = null;
+    startY = null;
+
+    setTimeout(() => {
+        certWrapper.style.scrollSnapType = 'x mandatory';
+    }, 100);
+
+});
         
         // Initialize button states
         updateNavButtons();
