@@ -899,6 +899,7 @@
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
+    scroll-padding-left:0.5rem;
 }
 
 .certifications__wrapper::-webkit-scrollbar {
@@ -912,10 +913,10 @@
     box-shadow: var(--shadow-light);
     transition: all 0.3s ease;
     position: relative;
-    flex: 0 0 calc(100% - 3rem);
+    flex: 0 0 calc(100% - 1rem);
     display: flex;
     flex-direction: column;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     height: auto;
     user-select: none;
 -webkit-user-select: none;
@@ -1046,7 +1047,7 @@
 
     .certifications__wrapper {
         gap: 1rem;
-        padding: 0.5rem;
+        padding: 0;
     }
 
     .certification__card {
