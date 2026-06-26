@@ -264,21 +264,25 @@
         }
 
         .header__image {
-            position: relative;
-            animation: slideInRight 1s ease-out;
-        }
+    position: relative;
+    animation: slideInRight 1s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .header__image img {
-            width: 80%;
-            height: auto;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-heavy);
-            transition: transform 0.3s ease;
-        }
+.header__image img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-heavy);
+    transition: transform 0.3s ease;
+}
 
-        .header__image:hover img {
-            transform: scale(1.02);
-        }
+.header__image:hover img {
+    transform: scale(1.02);
+}
 
         /* Intro Section */
         .intro {
@@ -888,6 +892,8 @@
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    touch-action: pan-x;
     padding: 1rem 0.5rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -910,6 +916,9 @@
     flex-direction: column;
     scroll-snap-align: start;
     height: auto;
+    user-select: none;
+-webkit-user-select: none;
+-webkit-touch-callout: none;
 }
 
 .certification__card:hover {
@@ -1123,34 +1132,42 @@
     </nav>
 
     <!-- Header -->
-    <section id="home" class="header">
-        <div class="section__container">
-            <div class="header__container">
-                <div class="header__content">
-                    <h2>Hi, I am</h2>
-                    <h1>Sundara Pandi</h1>
-                    <h3>Full Stack Developer | Java Developer</h3>
-                    <p>
-                        Passionate Full Stack Developer and Java Developer with a strong foundation in designing and building scalable, user-centric applications. Skilled in Java, HTML, CSS, JavaScript, and database technologies, I enjoy transforming ideas into efficient and reliable solutions. I focus on writing clean, maintainable code and developing intuitive interfaces backed by robust systems that deliver seamless user experiences. With a commitment to continuous learning and problem-solving, I strive to create impactful applications that combine functionality, performance, and modern design.
+    <!-- Header -->
+<section id="home" class="header">
+    <div class="section__container">
+        <div class="header__container">
 
-                    </p>
-                    <div class="header__image float">
-                    <img src="008A9186a.jpg" alt="Sundara Pandi" />
-                </div>
-                    <div class="header__btns">
-                        <a href="https://drive.google.com/file/d/1PHBUo3H7UftW6mSoRqQl4nG1epEAHl25/view?usp=sharing" class="btn btn-primary">
-                            <i class="ri-download-line"></i>
-                            Download CV
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <i class="ri-message-line"></i>
-                            Contact Me
-                        </a>
-                    </div>
+            <!-- Left Side -->
+            <div class="header__content">
+                <h2>Hi, I am</h2>
+                <h1>Sundara Pandi</h1>
+                <h3>Full Stack Developer | Java Developer</h3>
+
+                <p>
+                    Passionate Full Stack Developer and Java Developer with a strong foundation in designing and building scalable, user-centric applications. Skilled in Java, HTML, CSS, JavaScript, and database technologies, I enjoy transforming ideas into efficient and reliable solutions. I focus on writing clean, maintainable code and developing intuitive interfaces backed by robust systems that deliver seamless user experiences. With a commitment to continuous learning and problem-solving, I strive to create impactful applications that combine functionality, performance, and modern design.
+                </p>
+
+                <div class="header__btns">
+                    <a href="https://drive.google.com/file/d/1PHBUo3H7UftW6mSoRqQl4nG1epEAHl25/view?usp=sharing" class="btn btn-primary">
+                        <i class="ri-download-line"></i>
+                        Download CV
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="ri-message-line"></i>
+                        Contact Me
+                    </a>
                 </div>
             </div>
+
+            <!-- Right Side -->
+            <div class="header__image float">
+                <img src="008A9186a.jpg" alt="Sundara Pandi" />
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Intro -->
     <section id="intro" class="intro">
