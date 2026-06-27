@@ -893,13 +893,10 @@
     overflow-y: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    touch-action: pan-x;
-    padding: 1rem 0.5rem;
+    padding: 1rem 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
-    scroll-padding-left:0.5rem;
 }
 
 .certifications__wrapper::-webkit-scrollbar {
@@ -913,14 +910,14 @@
     box-shadow: var(--shadow-light);
     transition: all 0.3s ease;
     position: relative;
-    flex: 0 0 calc(100% - 1rem);
+    flex: 0 0 100%;
     display: flex;
     flex-direction: column;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     height: auto;
     user-select: none;
--webkit-user-select: none;
--webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .certification__card:hover {
@@ -1027,18 +1024,22 @@
 .cert-nav-btn:hover {
     transform: scale(1.05);
 }
-
+.cert-nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
 /* Tablet */
 @media (min-width: 768px) {
     .certification__card {
-        flex: 0 0 calc(50% - 2rem);
+        flex: 0 0 calc(50% - 0.75rem);
     }
 }
 
 /* Desktop */
 @media (min-width: 1200px) {
     .certification__card {
-        flex: 0 0 calc(50% - 2rem);
+        flex: 0 0 calc(50% - 0.75rem);
     }
 }
 
@@ -1047,11 +1048,12 @@
 
     .certifications__wrapper {
         gap: 1rem;
-        padding: 0;
+        padding: 0.5rem 0;
     }
 
     .certification__card {
         flex: 0 0 100%;
+        scroll-snap-align: center;
     }
 
     .certification__image {
